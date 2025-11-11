@@ -49,6 +49,27 @@ export const addNumber = mutation({
   },
 });
 
+// Mutation to add a user:
+export const addUser = mutation({
+  // Validators for arguments.
+  args: {
+    name: v.string(),
+    email: v.string(),
+  },
+
+  // Mutation implementation.
+  handler: async (ctx, args) => {
+    // Insert a new user into the database.
+    const id = await ctx.db.insert("users", {
+      name: args.name,
+      email: args.email,
+    });
+
+    console.log("Added new user with id:", id);
+    return id;
+  },
+});
+
 // You can fetch data from and send data to third-party APIs via an action:
 export const myAction = action({
   // Validators for arguments.
