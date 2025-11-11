@@ -7,7 +7,7 @@ import { v } from "convex/values";
 // The schema provides more precise TypeScript types.
 export default defineSchema({
   users: defineTable({
-    name: v.string(),
+    firstName: v.string(),
     email: v.string(),
   }),
 });
